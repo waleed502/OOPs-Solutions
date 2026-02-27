@@ -1,0 +1,107 @@
+#include<iostream>
+using namespace std;
+class Library
+{
+	protected:
+		string title;
+		string author;
+		int id;
+	public:
+		Library(string title,string author,int id)
+		{
+			this->title=title;
+			this->author=author;
+			this->id=id;
+		}
+	virtual void display()
+	{
+		
+	}
+};
+class Book: public Library
+{
+	private:
+	int noOfPages;
+	string genre;
+	public:
+	Book (string title,string author, int id,int noOfPages,string genre):Library(title,author,id)
+	{
+		this->noOfPages=noOfPages;
+		this->genre=genre;
+	}
+	void display ()
+	{
+		cout<<"Book title "<<title<<endl;
+		cout<<"Author of the book is "<<author<<endl;
+		cout<<"Id of the book is "<<id<<endl;
+		cout<<"Number of pages in the book are "<<noOfPages<<endl;
+		cout<<"Genre of the book is "<<genre<<endl;
+		
+	}
+};
+class Magzine:public Library
+{
+	private:
+		int issueNumber;
+		string publicationMonth;
+	public:
+	Magzine(string title,string author, int id,int issueNumber,string publicationMonth):Library(title,author,id)
+	{
+		this->issueNumber=issueNumber;
+		this->publicationMonth=publicationMonth;
+	}
+	void display()
+	{
+		cout<<"Magzine title "<<title<<endl;
+		cout<<"Author of the magzine is "<<author<<endl;
+		cout<<"Id of the magzine is "<<id<<endl;
+		cout<<"Issue number  of magzine is "<<issueNumber<<endl;
+		cout<<"Publication month of magzine is "<<publicationMonth<<endl;
+	}
+};
+class audioBook:public Library
+		{
+	private:
+		int duration;
+		string narratorName;
+	public:	
+	audioBook (string title,string author, int id,int duration,string narratorName):Library(title,author,id)
+	{
+	this->duration=duration;
+	this->narratorName=narratorName;
+	}
+	void display()
+	{
+		cout<<"Audio Book title "<<title<<endl;
+		cout<<"Audio book of the magzine is "<<author<<endl;
+		cout<<"Id of the audio book is "<<id<<endl;
+		cout<<"Duration of the audio book is "<<duration<<endl;
+		cout<<"Narrator of the audio book is "<<narratorName<<endl;
+	}
+};
+int main()
+{
+	Book b1("Java in 30 days","James",1001,300,"Programming");
+	Book b2("Python in 30 days","Steve",1002,320,"Programming");
+	cout<<"Details of book 1 are : "<<endl;
+	b1.display();
+	cout<<endl;
+	cout<<"Details of book 2 are : "<<endl;
+	b2.display();
+	cout<<endl;
+	Magzine m1("Weekly update","Jhon",200,2320,"March");
+	Magzine m2("Monthly update","Ismail",201,2340,"April");
+	cout<<"Details of Magzine 1 are : "<<endl;
+	m1.display();
+	cout<<"Details of Magzine 2 are : "<<endl;
+	cout<<endl;
+	m2.display();
+	cout<<endl;
+	audioBook ab1("Elden Ring","Elden",220,40,"Elden");
+	audioBook ab2("Audio Book","Dennis Ritchie",240,60,"Dennis");
+		cout<<"Details of Audio Book 1 are : "<<endl;
+	ab1.display();
+	cout<<endl;
+	cout<<"Details of Audio Book 2 are : "<<endl;
+	ab2.display();
+}
