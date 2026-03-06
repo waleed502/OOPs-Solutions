@@ -35,6 +35,6 @@ int main()
 {
 	ExpressDelivery e1;
 	e1.display(101,700," Zubair ");
-	ExpressDelivery e2;
-	e2.display(102,900," Musawir ", " High");
+	
+	e1.display(102,900," Musawir ", " High");
 }
